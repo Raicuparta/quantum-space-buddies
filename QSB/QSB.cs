@@ -1,5 +1,6 @@
 ﻿using OWML.Common;
 using OWML.ModHelper;
+using QSB.Console;
 using QSB.Events;
 using QSB.Utility;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace QSB
     public class QSB : ModBehaviour
     {
         public static IModHelper Helper;
+        public static ChatHandler Chat;
         public static string DefaultServerIP;
         public static bool DebugMode;
 
@@ -27,6 +29,9 @@ namespace QSB
             gameObject.AddComponent<NetworkManagerHUD>();
             gameObject.AddComponent<DebugActions>();
             gameObject.AddComponent<EventListener>();
+
+            Chat = ChatSetup.Init();
+            Chat.PostMessage("this is a test", "Mister_Nebula");
         }
 
         public override void Configure(IModConfig config)

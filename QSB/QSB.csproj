@@ -113,6 +113,8 @@
     <Compile Include="Animation\AnimFloatParam.cs" />
     <Compile Include="Animation\AnimTriggerMessage.cs" />
     <Compile Include="Animation\AnimTrigger.cs" />
+    <Compile Include="Console\ChatHandler.cs" />
+    <Compile Include="Console\ChatSetup.cs" />
     <Compile Include="Tools\QSBFlashlight.cs" />
     <Compile Include="Tools\QSBTool.cs" />
     <Compile Include="Tools\ToolType.cs" />
