@@ -70,9 +70,11 @@ namespace QSB
         private void OnSceneLoaded(OWScene scene, bool inUniverse)
         {
             var orbs = Resources.FindObjectsOfTypeAll<NomaiInterfaceOrb>();
-            foreach (var orb in orbs)
+            for (int i = 0; i < orbs.Length; i++)
             {
-                DebugLog.ToConsole($"{orb.name}, {orb.transform.root.name}");
+                var obj = Instantiate(OrbPrefab);
+                obj.GetComponent<NomaiOrbTransformSync>().Index = i;
+                NetworkServer.Spawn(obj);
             }
         }
 

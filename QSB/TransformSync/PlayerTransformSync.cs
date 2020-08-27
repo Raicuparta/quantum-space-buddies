@@ -1,5 +1,10 @@
-﻿using QSB.Animation;
+﻿using System;
+using System.Runtime.InteropServices;
+using QSB.Animation;
+using QSB.Utility;
+using Unity;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace QSB.TransformSync
 {
