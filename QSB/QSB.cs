@@ -8,9 +8,9 @@ using QSB.OrbSync;
 using QSB.Patches;
 using QSB.SectorSync;
 using QSB.TimeSync;
+using QSB.UNet.Networking;
 using QSB.Utility;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace QSB
 {

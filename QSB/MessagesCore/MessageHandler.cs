@@ -1,9 +1,9 @@
 ﻿using OWML.Common;
 using QSB.EventsCore;
+using QSB.UNet.Networking;
 using QSB.Utility;
 using System;
 using System.Linq;
-using UnityEngine.Networking;
 
 namespace QSB.Messaging
 {

@@ -2,6 +2,7 @@
 using OWML.ModHelper.Events;
 using QSB.EventsCore;
 using QSB.Player;
+using QSB.UNet.Networking;
 using QSB.Utility;
 using System.Linq;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace QSB.Animation
     {
         private Animator _anim;
         private Animator _bodyAnim;
-        private QSBNetworkAnimator _netAnim;
+        private NetworkAnimator _netAnim;
 
         private RuntimeAnimatorController _suitedAnimController;
         private AnimatorOverrideController _unsuitedAnimController;
@@ -37,7 +38,7 @@ namespace QSB.Animation
         private void Awake()
         {
             _anim = gameObject.AddComponent<Animator>();
-            _netAnim = gameObject.AddComponent<QSBNetworkAnimator>();
+            _netAnim = gameObject.AddComponent<NetworkAnimator>();
             _netAnim.enabled = false;
             _netAnim.animator = _anim;
 

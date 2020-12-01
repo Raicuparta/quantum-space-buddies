@@ -1,11 +1,11 @@
 ﻿using OWML.Common;
 using QSB.EventsCore;
 using QSB.TransformSync;
+using QSB.UNet.Networking;
 using QSB.Utility;
 using QSB.WorldSync;
 using QSB.WorldSync.Events;
 using System.Linq;
-using UnityEngine.Networking;
 
 namespace QSB.OrbSync.Events
 {

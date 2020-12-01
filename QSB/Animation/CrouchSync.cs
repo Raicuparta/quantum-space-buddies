@@ -1,6 +1,6 @@
-﻿using System;
+﻿using QSB.UNet.Networking;
+using System;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace QSB.Animation
 {

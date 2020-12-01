@@ -12,12 +12,12 @@ using QSB.Player;
 using QSB.SectorSync;
 using QSB.TimeSync;
 using QSB.TransformSync;
+using QSB.UNet.Networking;
 using QSB.Utility;
 using QSB.WorldSync;
 using System;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace QSB
 {
@@ -46,24 +46,29 @@ namespace QSB
             _assetBundle = QSB.NetworkAssetBundle;
 
             playerPrefab = _assetBundle.LoadAsset<GameObject>("assets/networkplayer.prefab");
+            playerPrefab.AddComponent<NetworkIdentity>();
             playerPrefab.AddComponent<PlayerTransformSync>();
             playerPrefab.AddComponent<AnimationSync>();
             playerPrefab.AddComponent<WakeUpSync>();
             playerPrefab.AddComponent<InstrumentsManager>();
 
             _shipPrefab = _assetBundle.LoadAsset<GameObject>("assets/networkship.prefab");
+            _shipPrefab.AddComponent<NetworkIdentity>();
             _shipPrefab.AddComponent<ShipTransformSync>();
             spawnPrefabs.Add(_shipPrefab);
 
             _cameraPrefab = _assetBundle.LoadAsset<GameObject>("assets/networkcameraroot.prefab");
+            _cameraPrefab.AddComponent<NetworkIdentity>();
             _cameraPrefab.AddComponent<PlayerCameraSync>();
             spawnPrefabs.Add(_cameraPrefab);
 
             _probePrefab = _assetBundle.LoadAsset<GameObject>("assets/networkprobe.prefab");
+            _probePrefab.AddComponent<NetworkIdentity>();
             _probePrefab.AddComponent<PlayerProbeSync>();
             spawnPrefabs.Add(_probePrefab);
 
             OrbPrefab = _assetBundle.LoadAsset<GameObject>("assets/networkorb.prefab");
+            OrbPrefab.AddComponent<NetworkIdentity>();
             OrbPrefab.AddComponent<NomaiOrbTransformSync>();
             spawnPrefabs.Add(OrbPrefab);
 
@@ -109,13 +114,6 @@ namespace QSB
             {
                 WorldRegistry.OldDialogueTrees = Resources.FindObjectsOfTypeAll<CharacterDialogueTree>().ToList();
             }
-
-            NetworkServer.UnregisterHandler(40);
-            NetworkServer.UnregisterHandler(41);
-            NetworkServer.UnregisterHandler(42);
-            NetworkServer.RegisterHandler(40, new NetworkMessageDelegate(QSBNetworkAnimator.OnAnimationServerMessage));
-            NetworkServer.RegisterHandler(41, new NetworkMessageDelegate(QSBNetworkAnimator.OnAnimationParametersServerMessage));
-            NetworkServer.RegisterHandler(42, new NetworkMessageDelegate(QSBNetworkAnimator.OnAnimationTriggerServerMessage));
         }
 
         public override void OnServerAddPlayer(NetworkConnection connection, short playerControllerId) // Called on the server when a client joins
@@ -146,13 +144,7 @@ namespace QSB
             if (!NetworkServer.localClientActive)
             {
                 QSBPatchManager.DoPatchType(QSBPatchTypes.OnNonServerClientConnect);
-                singleton.client.UnregisterHandler(40);
-                singleton.client.UnregisterHandler(41);
-                singleton.client.RegisterHandlerSafe(40, new NetworkMessageDelegate(QSBNetworkAnimator.OnAnimationClientMessage));
-                singleton.client.RegisterHandlerSafe(41, new NetworkMessageDelegate(QSBNetworkAnimator.OnAnimationParametersClientMessage));
             }
-            singleton.client.UnregisterHandler(42);
-            singleton.client.RegisterHandlerSafe(42, new NetworkMessageDelegate(QSBNetworkAnimator.OnAnimationTriggerClientMessage));
 
             QSBPatchManager.DoPatchType(QSBPatchTypes.OnClientConnect);
 

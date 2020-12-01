@@ -97,7 +97,11 @@
       <HintPath>$(GameDir)\OuterWilds_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
-      <HintPath>$(GameDir)\OuterWilds_Data\Managed\UnityEngine.Networking.dll</HintPath>
+      <HintPath>E:\Epic\Epic Games\OuterWilds\OuterWilds_Data\Managed\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Epic\Epic Games\OuterWilds\OuterWilds_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -115,8 +119,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(GameDir)\OuterWilds_Data\Managed\UnityEngine.UIModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UNETModule">
-      <HintPath>$(GameDir)\OuterWilds_Data\Managed\UnityEngine.UNETModule.dll</HintPath>
+    <Reference Include="UnityEngine.UNETModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Epic\Epic Games\OuterWilds\OuterWilds_Data\Managed\UnityEngine.UNETModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -131,7 +136,6 @@
     <Compile Include="Animation\Events\QSBAnimationParametersMessage.cs" />
     <Compile Include="Animation\Events\QSBAnimationTriggerMessage.cs" />
     <Compile Include="Animation\PlayerHeadRotationSync.cs" />
-    <Compile Include="Animation\QSBNetworkAnimator.cs" />
     <Compile Include="ConversationSync\Events\ConversationEvent.cs" />
     <Compile Include="ConversationSync\Events\ConversationMessage.cs" />
     <Compile Include="ConversationSync\ConversationPatches.cs" />
@@ -193,6 +197,88 @@
     <Compile Include="SectorSync\QSBSector.cs" />
     <Compile Include="SectorSync\QSBSectorManager.cs" />
     <Compile Include="TransformSync\TransformSync.cs" />
+    <Compile Include="UNet\Networking\AddPlayerMessage.cs" />
+    <Compile Include="UNet\Networking\AppID.cs" />
+    <Compile Include="UNet\Networking\ChannelBuffer.cs" />
+    <Compile Include="UNet\Networking\ChannelOption.cs" />
+    <Compile Include="UNet\Networking\ChannelPacket.cs" />
+    <Compile Include="UNet\Networking\ChannelQOS.cs" />
+    <Compile Include="UNet\Networking\ClientAttribute.cs" />
+    <Compile Include="UNet\Networking\ClientAuthorityMessage.cs" />
+    <Compile Include="UNet\Networking\ClientScene.cs" />
+    <Compile Include="UNet\Networking\ConnectionAcksType.cs" />
+    <Compile Include="UNet\Networking\ConnectionConfig.cs" />
+    <Compile Include="UNet\Networking\ConnectionConfigInternal.cs" />
+    <Compile Include="UNet\Networking\ConnectionSimulatorConfig.cs" />
+    <Compile Include="UNet\Networking\CRCMessage.cs" />
+    <Compile Include="UNet\Networking\CRCMessageEntry.cs" />
+    <Compile Include="UNet\Networking\DotNetCompatibility.cs" />
+    <Compile Include="UNet\Networking\EmptyMessage.cs" />
+    <Compile Include="UNet\Networking\ErrorMessage.cs" />
+    <Compile Include="UNet\Networking\FloatConversion.cs" />
+    <Compile Include="UNet\Networking\GlobalConfig.cs" />
+    <Compile Include="UNet\Networking\GlobalConfigInternal.cs" />
+    <Compile Include="UNet\Networking\HostTopology.cs" />
+    <Compile Include="UNet\Networking\HostTopologyInternal.cs" />
+    <Compile Include="UNet\Networking\LocalClient.cs" />
+    <Compile Include="UNet\Networking\LogFilter.cs" />
+    <Compile Include="UNet\Networking\MessageBase.cs" />
+    <Compile Include="UNet\Networking\MsgType.cs" />
+    <Compile Include="UNet\Networking\NetBuffer.cs" />
+    <Compile Include="UNet\Networking\NetworkAccessToken.cs" />
+    <Compile Include="UNet\Networking\NetworkAnimator.cs" />
+    <Compile Include="UNet\Networking\NetworkBehaviour.cs" />
+    <Compile Include="UNet\Networking\NetworkClient.cs" />
+    <Compile Include="UNet\Networking\NetworkConnection.cs" />
+    <Compile Include="UNet\Networking\NetworkCRC.cs" />
+    <Compile Include="UNet\Networking\NetworkError.cs" />
+    <Compile Include="UNet\Networking\NetworkEventType.cs" />
+    <Compile Include="UNet\Networking\NetworkHash128.cs" />
+    <Compile Include="UNet\Networking\NetworkID.cs" />
+    <Compile Include="UNet\Networking\NetworkIdentity.cs" />
+    <Compile Include="UNet\Networking\NetworkInstanceId.cs" />
+    <Compile Include="UNet\Networking\NetworkManager.cs" />
+    <Compile Include="UNet\Networking\NetworkManagerHUD.cs" />
+    <Compile Include="UNet\Networking\NetworkMessage.cs" />
+    <Compile Include="UNet\Networking\NetworkMessageDelegate.cs" />
+    <Compile Include="UNet\Networking\NetworkMessageHandlers.cs" />
+    <Compile Include="UNet\Networking\NetworkReader.cs" />
+    <Compile Include="UNet\Networking\NetworkScene.cs" />
+    <Compile Include="UNet\Networking\NetworkSceneId.cs" />
+    <Compile Include="UNet\Networking\NetworkServer.cs" />
+    <Compile Include="UNet\Networking\NetworkServerSimple.cs" />
+    <Compile Include="UNet\Networking\NetworkTransform.cs" />
+    <Compile Include="UNet\Networking\NetworkTransformChild.cs" />
+    <Compile Include="UNet\Networking\NetworkTransport.cs" />
+    <Compile Include="UNet\Networking\NetworkWriter.cs" />
+    <Compile Include="UNet\Networking\NodeID.cs" />
+    <Compile Include="UNet\Networking\NotReadyMessage.cs" />
+    <Compile Include="UNet\Networking\ObjectDestroyMessage.cs" />
+    <Compile Include="UNet\Networking\ObjectSpawnFinishedMessage.cs" />
+    <Compile Include="UNet\Networking\ObjectSpawnMessage.cs" />
+    <Compile Include="UNet\Networking\ObjectSpawnSceneMessage.cs" />
+    <Compile Include="UNet\Networking\OwnerMessage.cs" />
+    <Compile Include="UNet\Networking\PeerAuthorityMessage.cs" />
+    <Compile Include="UNet\Networking\PeerInfoMessage.cs" />
+    <Compile Include="UNet\Networking\PeerInfoPlayer.cs" />
+    <Compile Include="UNet\Networking\PeerListMessage.cs" />
+    <Compile Include="UNet\Networking\PlayerController.cs" />
+    <Compile Include="UNet\Networking\PlayerSpawnMethod.cs" />
+    <Compile Include="UNet\Networking\QosType.cs" />
+    <Compile Include="UNet\Networking\ReactorModel.cs" />
+    <Compile Include="UNet\Networking\ReadyMessage.cs" />
+    <Compile Include="UNet\Networking\ReconnectMessage.cs" />
+    <Compile Include="UNet\Networking\RemovePlayerMessage.cs" />
+    <Compile Include="UNet\Networking\SourceID.cs" />
+    <Compile Include="UNet\Networking\SpawnDelegate.cs" />
+    <Compile Include="UNet\Networking\StringMessage.cs" />
+    <Compile Include="UNet\Networking\UIntDecimal.cs" />
+    <Compile Include="UNet\Networking\UIntFloat.cs" />
+    <Compile Include="UNet\Networking\ULocalConnectionToClient.cs" />
+    <Compile Include="UNet\Networking\ULocalConnectionToServer.cs" />
+    <Compile Include="UNet\Networking\UnSpawnDelegate.cs" />
+    <Compile Include="UNet\Networking\Utility.cs" />
+    <Compile Include="UNet\Networking\Version.cs" />
     <Compile Include="Utility\GOExtensions.cs" />
     <Compile Include="Utility\ListExtensions.cs" />
     <Compile Include="WorldSync\Events\BoolWorldObjectMessage.cs" />
@@ -238,7 +324,6 @@
     <None Include="manifest.json" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>md "$(OwmlDir)\Mods\$(ProjectName)"

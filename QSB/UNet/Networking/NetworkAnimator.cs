@@ -1,14 +1,11 @@
 ﻿using QSB.Animation.Events;
 using UnityEngine;
-using UnityEngine.Networking;
 
-namespace QSB.Animation
+namespace QSB.UNet.Networking
 {
-    // Cleaned up unity code. UNET is so broken I gave up and fixed it myself.
-
     [RequireComponent(typeof(NetworkIdentity))]
     [RequireComponent(typeof(Animator))]
-    class QSBNetworkAnimator : NetworkBehaviour
+    class NetworkAnimator : NetworkBehaviour
     {
         private static QSBAnimationMessage AnimationMessage = new QSBAnimationMessage();
         private static QSBAnimationParametersMessage ParametersMessage = new QSBAnimationParametersMessage();
@@ -301,7 +298,7 @@ namespace QSB.Animation
             {
                 return;
             }
-            var component = localObject.GetComponent<QSBNetworkAnimator>();
+            var component = localObject.GetComponent<NetworkAnimator>();
             var reader = new NetworkReader(AnimationMessage.parameters);
             component?.HandleAnimMsg(AnimationMessage, reader);
             NetworkServer.SendToReady(localObject, 40, AnimationMessage);
@@ -315,7 +312,7 @@ namespace QSB.Animation
             {
                 return;
             }
-            var component = localObject.GetComponent<QSBNetworkAnimator>();
+            var component = localObject.GetComponent<NetworkAnimator>();
             var reader = new NetworkReader(ParametersMessage.parameters);
             component?.HandleAnimParamsMsg(ParametersMessage, reader);
             NetworkServer.SendToReady(localObject, 41, ParametersMessage);
@@ -329,7 +326,7 @@ namespace QSB.Animation
             {
                 return;
             }
-            var component = localObject.GetComponent<QSBNetworkAnimator>();
+            var component = localObject.GetComponent<NetworkAnimator>();
             component?.HandleAnimTriggerMsg(TriggersMessage.hash);
             NetworkServer.SendToReady(localObject, 42, TriggersMessage);
         }
@@ -340,7 +337,7 @@ namespace QSB.Animation
             var localObject = ClientScene.FindLocalObject(AnimationMessage.netId);
             if (localObject == null)
                 return;
-            var component = localObject.GetComponent<QSBNetworkAnimator>();
+            var component = localObject.GetComponent<NetworkAnimator>();
             if (component == null)
                 return;
             var reader = new NetworkReader(AnimationMessage.parameters);
@@ -353,7 +350,7 @@ namespace QSB.Animation
             var localObject = ClientScene.FindLocalObject(ParametersMessage.netId);
             if (localObject == null)
                 return;
-            var component = localObject.GetComponent<QSBNetworkAnimator>();
+            var component = localObject.GetComponent<NetworkAnimator>();
             if (component == null)
                 return;
             var reader = new NetworkReader(ParametersMessage.parameters);
@@ -366,7 +363,7 @@ namespace QSB.Animation
             var localObject = ClientScene.FindLocalObject(TriggersMessage.netId);
             if (localObject == null)
                 return;
-            var component = localObject.GetComponent<QSBNetworkAnimator>();
+            var component = localObject.GetComponent<NetworkAnimator>();
             if (component == null)
                 return;
             component.HandleAnimTriggerMsg(TriggersMessage.hash);

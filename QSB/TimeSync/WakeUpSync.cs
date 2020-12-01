@@ -1,9 +1,9 @@
 ﻿using QSB.DeathSync;
 using QSB.EventsCore;
 using QSB.TimeSync.Events;
+using QSB.UNet.Networking;
 using QSB.Utility;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace QSB.TimeSync
 {

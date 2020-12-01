@@ -1,5 +1,5 @@
 ﻿using OWML.ModHelper.Events;
-using UnityEngine.Networking;
+using QSB.UNet.Networking;
 
 namespace QSB.TimeSync
 {

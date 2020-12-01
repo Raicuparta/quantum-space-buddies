@@ -1,10 +1,10 @@
 ﻿using OWML.Common;
 using QSB.Player.Events;
 using QSB.TransformSync;
+using QSB.UNet.Networking;
 using QSB.Utility;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.Networking;
 
 namespace QSB.Player
 {

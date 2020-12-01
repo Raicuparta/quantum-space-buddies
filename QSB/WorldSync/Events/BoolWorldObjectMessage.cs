@@ -1,4 +1,4 @@
-﻿using UnityEngine.Networking;
+﻿using QSB.UNet.Networking;
 
 namespace QSB.WorldSync.Events
 {

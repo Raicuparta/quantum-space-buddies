@@ -1,8 +1,8 @@
 ﻿using OWML.ModHelper.Events;
+using QSB.UNet.Networking;
 using System;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace QSB
 {
@@ -40,7 +40,6 @@ namespace QSB
         {
             PlayerName = GetPlayerName();
             CanEditName = true;
-            QSB.Helper.HarmonyHelper.EmptyMethod<NetworkManagerHUD>("Update");
         }
 
         private string GetPlayerName()
