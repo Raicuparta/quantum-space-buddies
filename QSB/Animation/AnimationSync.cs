@@ -13,7 +13,7 @@ namespace QSB.Animation
 	{
 		private Animator _anim;
 		private Animator _bodyAnim;
-		private QNetworkAnimator _netAnim;
+		private QSBNetworkAnimator _netAnim;
 
 		private RuntimeAnimatorController _suitedAnimController;
 		private AnimatorOverrideController _unsuitedAnimController;
@@ -34,7 +34,7 @@ namespace QSB.Animation
 		protected void Awake()
 		{
 			_anim = gameObject.AddComponent<Animator>();
-			_netAnim = gameObject.AddComponent<QNetworkAnimator>();
+			_netAnim = gameObject.AddComponent<QSBNetworkAnimator>();
 			_netAnim.enabled = false;
 			_netAnim.animator = _anim;
 
@@ -130,7 +130,7 @@ namespace QSB.Animation
 			InitCrouchSync();
 
 			var ikSync = body.gameObject.AddComponent<PlayerHeadRotationSync>();
-			QSBCore.Helper.Events.Unity.RunWhen(() => Player.CameraBody != null, () => ikSync.Init(Player.CameraBody.transform));
+			QSBCore.Helper.Events.Unity.RunWhen(() => Player.Camera != null, () => ikSync.Init(Player.Camera.transform));
 		}
 
 		private void InitCrouchSync()
@@ -145,19 +145,19 @@ namespace QSB.Animation
 
 		private void OnBecomeUngrounded() => _netAnim.SetTrigger("Ungrounded");
 
-		public void SendCrouch(float value = 0) => QSBEventManager.FireEvent(EventNames.QSBCrouch, value);
+		public void SendCrouch(float value = 0) => GlobalMessenger<float>.FireEvent(EventNames.QSBCrouch, value);
 
 		public void HandleCrouch(float value) => _crouchSync.CrouchParam.Target = value;
 
 		private void SuitUp()
 		{
-			QSBEventManager.FireEvent(EventNames.QSBChangeAnimType, PlayerId, AnimationType.PlayerSuited);
+			GlobalMessenger<uint, AnimationType>.FireEvent(EventNames.QSBChangeAnimType, PlayerId, AnimationType.PlayerSuited);
 			SetAnimationType(AnimationType.PlayerSuited);
 		}
 
 		private void SuitDown()
 		{
-			QSBEventManager.FireEvent(EventNames.QSBChangeAnimType, PlayerId, AnimationType.PlayerUnsuited);
+			GlobalMessenger<uint, AnimationType>.FireEvent(EventNames.QSBChangeAnimType, PlayerId, AnimationType.PlayerUnsuited);
 			SetAnimationType(AnimationType.PlayerUnsuited);
 		}
 

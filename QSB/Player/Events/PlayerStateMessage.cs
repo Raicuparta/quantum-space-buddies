@@ -9,7 +9,7 @@ namespace QSB.Player.Events
 		public bool PlayerReady { get; set; }
 		public State PlayerState { get; set; }
 
-		public override void Deserialize(QNetworkReader reader)
+		public override void Deserialize(QSBNetworkReader reader)
 		{
 			base.Deserialize(reader);
 			PlayerName = reader.ReadString();
@@ -17,7 +17,7 @@ namespace QSB.Player.Events
 			PlayerState = (State)reader.ReadInt32();
 		}
 
-		public override void Serialize(QNetworkWriter writer)
+		public override void Serialize(QSBNetworkWriter writer)
 		{
 			base.Serialize(writer);
 			writer.Write(PlayerName);

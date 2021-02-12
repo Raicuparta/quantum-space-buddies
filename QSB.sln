@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QSB", "QSB\QSB.csproj", "{1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumUNET", "QuantumUNET\QuantumUNET.csproj", "{C8C53004-1508-4F86-A419-4292C188DC2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QSBTests", "QSBTests\QSBTests.csproj", "{2FE8256C-0CB6-48F1-A4C0-5FA18A1846A3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{C8C53004-1508-4F86-A419-4292C188DC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8C53004-1508-4F86-A419-4292C188DC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8C53004-1508-4F86-A419-4292C188DC2A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2FE8256C-0CB6-48F1-A4C0-5FA18A1846A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2FE8256C-0CB6-48F1-A4C0-5FA18A1846A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2FE8256C-0CB6-48F1-A4C0-5FA18A1846A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2FE8256C-0CB6-48F1-A4C0-5FA18A1846A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

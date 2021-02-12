@@ -31,6 +31,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.1.2.0.1\lib\net35\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio-Unity, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\NAudio-Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Json.Net.Unity3D.9.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OWML.Common, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="OWML.Logging, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="OWML.ModHelper, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="OWML.ModHelper.Assets, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.Assets.dll</HintPath>
+    </Reference>
+    <Reference Include="OWML.ModHelper.Events, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="OWML.ModHelper.Input, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="OWML.ModHelper.Interaction, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.Interaction.dll</HintPath>
+    </Reference>
+    <Reference Include="OWML.ModHelper.Menus, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.Menus.dll</HintPath>
+    </Reference>
+    <Reference Include="OWML.Utils, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.Utils.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -58,62 +94,56 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Messages\QMsgType.cs" />
+    <Compile Include="Messages\QSBMsgType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Messages\QAddPlayerMessage.cs" />
-    <Compile Include="Messages\QAnimationMessage.cs" />
-    <Compile Include="Messages\QAnimationParametersMessage.cs" />
-    <Compile Include="Messages\QAnimationTriggerMessage.cs" />
-    <Compile Include="Logging\QLog.cs" />
-    <Compile Include="Transport\QChannelBuffer.cs" />
-    <Compile Include="Transport\QChannelPacket.cs" />
-    <Compile Include="Messages\QClientAuthorityMessage.cs" />
-    <Compile Include="QClientScene.cs" />
-    <Compile Include="Messages\QCRCMessage.cs" />
-    <Compile Include="QCRCMessageEntry.cs" />
-    <Compile Include="Messages\QEmptyMessage.cs" />
-    <Compile Include="Messages\QErrorMessage.cs" />
-    <Compile Include="QLocalClient.cs" />
-    <Compile Include="Messages\QMessageBase.cs" />
-    <Compile Include="Transport\QNetBuffer.cs" />
-    <Compile Include="Components\QNetworkAnimator.cs" />
-    <Compile Include="QNetworkBehaviour.cs" />
-    <Compile Include="QNetworkClient.cs" />
-    <Compile Include="QNetworkConnection.cs" />
-    <Compile Include="QNetworkCRC.cs" />
-    <Compile Include="Components\QNetworkIdentity.cs" />
-    <Compile Include="Components\QNetworkManagerHUD.cs" />
-    <Compile Include="Components\QNetworkManager.cs" />
-    <Compile Include="Messages\QNetworkMessage.cs" />
-    <Compile Include="Messages\QNetworkMessageDelegate.cs" />
-    <Compile Include="QNetworkMessageHandlers.cs" />
-    <Compile Include="Transport\QNetworkReader.cs" />
-    <Compile Include="QNetworkScene.cs" />
-    <Compile Include="QNetworkServer.cs" />
-    <Compile Include="QNetworkServerSimple.cs" />
-    <Compile Include="Components\QNetworkTransform.cs" />
-    <Compile Include="Transport\QNetworkWriter.cs" />
-    <Compile Include="Messages\QNotReadyMessage.cs" />
-    <Compile Include="Messages\QObjectDestroyMessage.cs" />
-    <Compile Include="Messages\QObjectSpawnFinishedMessage.cs" />
-    <Compile Include="Messages\QObjectSpawnMessage.cs" />
-    <Compile Include="Messages\QObjectSpawnSceneMessage.cs" />
-    <Compile Include="Messages\QOwnerMessage.cs" />
-    <Compile Include="QPlayerController.cs" />
-    <Compile Include="Messages\QReadyMessage.cs" />
-    <Compile Include="Messages\QRemovePlayerMessage.cs" />
-    <Compile Include="Messages\QStringMessage.cs" />
-    <Compile Include="Messages\QSpawnDelegate.cs" />
-    <Compile Include="QULocalConnectionToClient.cs" />
-    <Compile Include="QULocalConnectionToServer.cs" />
+    <Compile Include="Messages\QSBAddPlayerMessage.cs" />
+    <Compile Include="Messages\QSBAnimationMessage.cs" />
+    <Compile Include="Messages\QSBAnimationParametersMessage.cs" />
+    <Compile Include="Messages\QSBAnimationTriggerMessage.cs" />
+    <Compile Include="Transport\QSBChannelBuffer.cs" />
+    <Compile Include="Transport\QSBChannelPacket.cs" />
+    <Compile Include="Messages\QSBClientAuthorityMessage.cs" />
+    <Compile Include="QSBClientScene.cs" />
+    <Compile Include="Messages\QSBCRCMessage.cs" />
+    <Compile Include="QSBCRCMessageEntry.cs" />
+    <Compile Include="Messages\QSBEmptyMessage.cs" />
+    <Compile Include="Messages\QSBErrorMessage.cs" />
+    <Compile Include="QSBLocalClient.cs" />
+    <Compile Include="Messages\QSBMessageBase.cs" />
+    <Compile Include="Transport\QSBNetBuffer.cs" />
+    <Compile Include="Components\QSBNetworkAnimator.cs" />
+    <Compile Include="QSBNetworkBehaviour.cs" />
+    <Compile Include="QSBNetworkClient.cs" />
+    <Compile Include="QSBNetworkConnection.cs" />
+    <Compile Include="QSBNetworkCRC.cs" />
+    <Compile Include="Components\QSBNetworkIdentity.cs" />
+    <Compile Include="Components\QSBNetworkManagerHUD.cs" />
+    <Compile Include="Components\QSBNetworkManagerUNET.cs" />
+    <Compile Include="Messages\QSBNetworkMessage.cs" />
+    <Compile Include="Messages\QSBNetworkMessageDelegate.cs" />
+    <Compile Include="QSBNetworkMessageHandlers.cs" />
+    <Compile Include="Transport\QSBNetworkReader.cs" />
+    <Compile Include="QSBNetworkScene.cs" />
+    <Compile Include="QSBNetworkServer.cs" />
+    <Compile Include="QSBNetworkServerSimple.cs" />
+    <Compile Include="Components\QSBNetworkTransform.cs" />
+    <Compile Include="Transport\QSBNetworkWriter.cs" />
+    <Compile Include="Messages\QSBNotReadyMessage.cs" />
+    <Compile Include="Messages\QSBObjectDestroyMessage.cs" />
+    <Compile Include="Messages\QSBObjectSpawnFinishedMessage.cs" />
+    <Compile Include="Messages\QSBObjectSpawnMessage.cs" />
+    <Compile Include="Messages\QSBObjectSpawnSceneMessage.cs" />
+    <Compile Include="Messages\QSBOwnerMessage.cs" />
+    <Compile Include="QSBPlayerController.cs" />
+    <Compile Include="Messages\QSBReadyMessage.cs" />
+    <Compile Include="Messages\QSBRemovePlayerMessage.cs" />
+    <Compile Include="Messages\QSBStringMessage.cs" />
+    <Compile Include="Messages\QSBSpawnDelegate.cs" />
+    <Compile Include="QSBULocalConnectionToClient.cs" />
+    <Compile Include="QSBULocalConnectionToServer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Json.Net.Unity3D">
-      <Version>9.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="Lib.Harmony">
-      <Version>1.2.0.1</Version>
-    </PackageReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

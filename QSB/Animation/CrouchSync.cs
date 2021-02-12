@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace QSB.Animation
 {
-	public class CrouchSync : QNetworkBehaviour
+	public class CrouchSync : QSBNetworkBehaviour
 	{
 		public AnimFloatParam CrouchParam { get; } = new AnimFloatParam();
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace QSB.TransformSync
 {
-	public class NomaiOrbTransformSync : QNetworkBehaviour
+	public class NomaiOrbTransformSync : QSBNetworkBehaviour
 	{
 		public NomaiInterfaceOrb AttachedOrb { get; private set; }
 		public Transform OrbTransform { get; private set; }

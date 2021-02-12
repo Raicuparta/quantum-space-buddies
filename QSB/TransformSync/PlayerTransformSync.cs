@@ -9,7 +9,10 @@ namespace QSB.TransformSync
 	{
 		public static PlayerTransformSync LocalInstance { get; private set; }
 
-		static PlayerTransformSync() => AnimControllerPatch.Init();
+		static PlayerTransformSync()
+		{
+			AnimControllerPatch.Init();
+		}
 
 		public override void OnStartLocalPlayer() => LocalInstance = this;
 
@@ -50,17 +53,6 @@ namespace QSB.TransformSync
 			Player.Body = body.gameObject;
 
 			return body;
-		}
-
-		private void OnRenderObject()
-		{
-			if (!QSBCore.HasWokenUp || !Player.IsReady || !QSBCore.DebugMode || !QSBCore.ShowLinesInDebug)
-			{
-				return;
-			}
-			Popcron.Gizmos.Cube(Player.Body.transform.position, Player.Body.transform.rotation, new Vector3(1, 2, 1));
-			Popcron.Gizmos.Line(ReferenceSector.Position, Player.Body.transform.position, Color.blue, true);
-			Popcron.Gizmos.Sphere(ReferenceSector.Position, 5f, Color.cyan);
 		}
 
 		public override bool IsReady => Locator.GetPlayerTransform() != null

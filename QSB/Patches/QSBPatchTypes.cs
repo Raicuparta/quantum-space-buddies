@@ -4,7 +4,6 @@
 	{
 		OnModStart = 0,
 		OnClientConnect = 1,
-		OnNonServerClientConnect = 2,
-		OnServerClientConnect = 3
+		OnNonServerClientConnect = 2
 	}
 }

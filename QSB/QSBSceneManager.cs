@@ -11,6 +11,7 @@ namespace QSB
 		public static bool IsInUniverse => InUniverse(CurrentScene);
 
 		public static event Action<OWScene, bool> OnSceneLoaded;
+
 		public static event Action<OWScene> OnUniverseSceneLoaded;
 
 		static QSBSceneManager()
@@ -23,10 +24,10 @@ namespace QSB
 		{
 			DebugLog.DebugWrite($"COMPLETE SCENE LOAD ({oldScene} -> {newScene})", MessageType.Info);
 			var universe = InUniverse(newScene);
-			OnSceneLoaded?.SafeInvoke(newScene, universe);
+			OnSceneLoaded?.Invoke(newScene, universe);
 			if (universe)
 			{
-				OnUniverseSceneLoaded?.SafeInvoke(newScene);
+				OnUniverseSceneLoaded?.Invoke(newScene);
 			}
 		}
 

@@ -17,7 +17,7 @@ namespace QSB.TransformSync
 		{
 			var body = GetProbe();
 
-			SetSocket(Player.CameraBody.transform);
+			SetSocket(Player.Camera.transform);
 			Player.ProbeBody = body.gameObject;
 
 			return body;
@@ -63,7 +63,7 @@ namespace QSB.TransformSync
 				DebugLog.ToConsole($"DisabledSocket is null for {AttachedNetId}! (ProbeLauncher null? : {Player.ProbeLauncher == null})", MessageType.Error);
 				return;
 			}
-			if (Player.GetState(State.ProbeActive) || ReferenceSector?.AttachedObject == null)
+			if (Player.GetState(State.ProbeActive) || ReferenceSector?.Sector == null)
 			{
 				return;
 			}

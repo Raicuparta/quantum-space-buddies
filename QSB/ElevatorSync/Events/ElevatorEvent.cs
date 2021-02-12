@@ -1,5 +1,4 @@
-﻿using QSB.ElevatorSync.WorldObjects;
-using QSB.Events;
+﻿using QSB.Events;
 using QSB.WorldSync;
 using QSB.WorldSync.Events;
 

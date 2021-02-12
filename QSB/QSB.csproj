@@ -16,7 +16,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.1.2.0.1\lib\net35\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>$(GameDir)\OuterWilds_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -38,6 +42,50 @@
     <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(GameDir)\OuterWilds_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NAudio-Unity, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\NAudio-Unity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Json.Net.Unity3D.9.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OWML.Common, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OWML.Logging, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.Logging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OWML.ModHelper, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OWML.ModHelper.Assets, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.Assets.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OWML.ModHelper.Events, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.Events.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OWML.ModHelper.Input, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.Input.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OWML.ModHelper.Interaction, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.Interaction.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OWML.ModHelper.Menus, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.ModHelper.Menus.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OWML.Utils, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OWML.1.1.1\lib\net35\OWML.Utils.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -111,38 +159,35 @@
     <Compile Include="ConversationSync\Events\DialogueConditionMessage.cs" />
     <Compile Include="ConversationSync\Events\ConversationEvent.cs" />
     <Compile Include="ConversationSync\Events\ConversationMessage.cs" />
-    <Compile Include="ConversationSync\Patches\ConversationPatches.cs" />
+    <Compile Include="ConversationSync\ConversationPatches.cs" />
     <Compile Include="ConversationSync\Events\ConversationStartEndEvent.cs" />
     <Compile Include="ConversationSync\Events\ConversationStartEndMessage.cs" />
     <Compile Include="ConversationSync\ConversationType.cs" />
     <Compile Include="ConversationSync\ConversationManager.cs" />
-    <Compile Include="DeathSync\Patches\DeathPatches.cs" />
-    <Compile Include="ElevatorSync\WorldObjects\QSBElevator.cs" />
+    <Compile Include="DeathSync\DeathPatches.cs" />
+    <Compile Include="ElevatorSync\QSBElevator.cs" />
     <Compile Include="ElevatorSync\Events\ElevatorEvent.cs" />
     <Compile Include="ElevatorSync\ElevatorManager.cs" />
-    <Compile Include="ElevatorSync\Patches\ElevatorPatches.cs" />
+    <Compile Include="ElevatorSync\ElevatorPatches.cs" />
     <Compile Include="Events\EventNames.cs" />
     <Compile Include="DeathSync\Events\PlayerDeathEvent.cs" />
     <Compile Include="Events\IQSBEvent.cs" />
     <Compile Include="Animation\Events\ChangeAnimTypeEvent.cs" />
-    <Compile Include="FrequencySync\Events\IdentifyFrequencyEvent.cs" />
-    <Compile Include="FrequencySync\Events\IdentifySignalEvent.cs" />
-    <Compile Include="FrequencySync\Patches\FrequencyPatches.cs" />
     <Compile Include="Instruments\QSBCamera\CameraController.cs" />
     <Compile Include="Instruments\QSBCamera\CameraManager.cs" />
     <Compile Include="Instruments\QSBCamera\CameraMode.cs" />
     <Compile Include="Instruments\InstrumentsManager.cs" />
     <Compile Include="LogSync\Events\RevealFactEvent.cs" />
     <Compile Include="LogSync\Events\RevealFactMessage.cs" />
-    <Compile Include="LogSync\Patches\LogPatches.cs" />
+    <Compile Include="LogSync\LogPatches.cs" />
     <Compile Include="Messaging\EnumMessage.cs" />
     <Compile Include="Messaging\FloatMessage.cs" />
     <Compile Include="OrbSync\Events\OrbSlotMessage.cs" />
     <Compile Include="OrbSync\OrbManager.cs" />
     <Compile Include="OrbSync\Events\OrbSlotEvent.cs" />
-    <Compile Include="OrbSync\Patches\OrbPatches.cs" />
+    <Compile Include="OrbSync\OrbPatches.cs" />
     <Compile Include="OrbSync\Events\OrbUserEvent.cs" />
-    <Compile Include="OrbSync\WorldObjects\QSBOrbSlot.cs" />
+    <Compile Include="OrbSync\QSBOrbSlot.cs" />
     <Compile Include="Patches\QSBPatchManager.cs" />
     <Compile Include="Player\Events\ServerSendPlayerStatesEvent.cs" />
     <Compile Include="Player\PlayerMapMarker.cs" />
@@ -152,40 +197,9 @@
     <Compile Include="Patches\QSBPatch.cs" />
     <Compile Include="Patches\QSBPatchTypes.cs" />
     <Compile Include="QSBSceneManager.cs" />
-    <Compile Include="QuantumSync\EnterLeaveType.cs" />
-    <Compile Include="QuantumSync\Events\EnterLeaveEvent.cs" />
-    <Compile Include="QuantumSync\Events\MoonStateChangeEvent.cs" />
-    <Compile Include="QuantumSync\Events\MoonStateChangeMessage.cs" />
-    <Compile Include="QuantumSync\Events\QuantumAuthorityEvent.cs" />
-    <Compile Include="QuantumSync\Events\QuantumAuthorityMessage.cs" />
-    <Compile Include="QuantumSync\Events\QuantumShuffleEvent.cs" />
-    <Compile Include="QuantumSync\Events\QuantumShuffleMessage.cs" />
-    <Compile Include="QuantumSync\WorldObjects\IQSBQuantumObject.cs" />
-    <Compile Include="QuantumSync\Patches\ClientQuantumPatches.cs" />
-    <Compile Include="QuantumSync\Events\MultiStateChangeEvent.cs" />
-    <Compile Include="QuantumSync\Events\MultiStateChangeMessage.cs" />
-    <Compile Include="QuantumSync\Events\SocketStateChangeEvent.cs" />
-    <Compile Include="QuantumSync\Events\SocketStateChangeMessage.cs" />
-    <Compile Include="QuantumSync\Patches\QuantumPatches.cs" />
-    <Compile Include="QuantumSync\WorldObjects\QSBMultiStateQuantumObject.cs" />
-    <Compile Include="QuantumSync\WorldObjects\QSBQuantumObject.cs" />
-    <Compile Include="QuantumSync\WorldObjects\QSBQuantumShuffleObject.cs" />
-    <Compile Include="QuantumSync\WorldObjects\QSBSocketedQuantumObject.cs" />
-    <Compile Include="QuantumSync\WorldObjects\QSBQuantumSocket.cs" />
-    <Compile Include="QuantumSync\QuantumManager.cs" />
-    <Compile Include="QuantumSync\Patches\QuantumVisibilityPatches.cs" />
-    <Compile Include="QuantumSync\Patches\ServerQuantumPatches.cs" />
-    <Compile Include="TranslationSync\Events\SetAsTranslatedEvent.cs" />
-    <Compile Include="TranslationSync\Events\SetAsTranslatedMessage.cs" />
-    <Compile Include="TranslationSync\NomaiTextType.cs" />
-    <Compile Include="TranslationSync\WorldObjects\QSBComputer.cs" />
-    <Compile Include="TranslationSync\WorldObjects\QSBVesselComputer.cs" />
-    <Compile Include="TranslationSync\WorldObjects\QSBWallText.cs" />
-    <Compile Include="TranslationSync\SpiralManager.cs" />
-    <Compile Include="TranslationSync\Patches\SpiralPatches.cs" />
     <Compile Include="TimeSync\TimeSyncType.cs" />
     <Compile Include="TimeSync\TimeSyncUI.cs" />
-    <Compile Include="TimeSync\Patches\WakeUpPatches.cs" />
+    <Compile Include="TimeSync\WakeUpPatches.cs" />
     <Compile Include="Tools\Events\PlayerFlashlightEvent.cs" />
     <Compile Include="Player\Events\PlayerJoinEvent.cs" />
     <Compile Include="Tools\Events\PlayerProbeEvent.cs" />
@@ -197,32 +211,18 @@
     <Compile Include="TimeSync\Events\ServerTimeEvent.cs" />
     <Compile Include="GeyserSync\Events\GeyserEvent.cs" />
     <Compile Include="GeyserSync\GeyserManager.cs" />
-    <Compile Include="GeyserSync\WorldObjects\QSBGeyser.cs" />
+    <Compile Include="GeyserSync\QSBGeyser.cs" />
     <Compile Include="Tools\Events\PlayerProbeLauncherEvent.cs" />
     <Compile Include="Tools\Events\PlayerSignalscopeEvent.cs" />
     <Compile Include="Tools\Events\PlayerTranslatorEvent.cs" />
     <Compile Include="Events\QSBEvent.cs" />
     <Compile Include="Player\Events\PlayerJoinMessage.cs" />
     <Compile Include="Messaging\ToggleMessage.cs" />
-    <Compile Include="SectorSync\WorldObjects\QSBSector.cs" />
+    <Compile Include="SectorSync\QSBSector.cs" />
     <Compile Include="SectorSync\QSBSectorManager.cs" />
     <Compile Include="TransformSync\TransformSync.cs" />
-    <Compile Include="Utility\DebugBoxManager.cs" />
-    <Compile Include="Utility\DebugZOverride.cs" />
-    <Compile Include="Utility\Extensions.cs" />
-    <Compile Include="Utility\OnEnableDisableTracker.cs" />
-    <Compile Include="Utility\Popcron.Gizmos\Constants.cs" />
-    <Compile Include="Utility\Popcron.Gizmos\Drawers\CubeDrawer.cs" />
-    <Compile Include="Utility\Popcron.Gizmos\Drawer.cs" />
-    <Compile Include="Utility\Popcron.Gizmos\Drawers\FrustumDrawer.cs" />
-    <Compile Include="Utility\Popcron.Gizmos\Element.cs" />
-    <Compile Include="Utility\Popcron.Gizmos\Gizmos.cs" />
-    <Compile Include="Utility\Popcron.Gizmos\GizmosInstance.cs" />
-    <Compile Include="Utility\Popcron.Gizmos\Drawers\LineDrawer.cs" />
-    <Compile Include="Utility\Popcron.Gizmos\Drawers\PolygonDrawer.cs" />
-    <Compile Include="Utility\Popcron.Gizmos\Drawers\SquareDrawer.cs" />
-    <Compile Include="Utility\Tuple.cs" />
-    <Compile Include="Utility\UnitTestDetector.cs" />
+    <Compile Include="Utility\GOExtensions.cs" />
+    <Compile Include="Utility\UnetExtensions.cs" />
     <Compile Include="WorldSync\Events\BoolWorldObjectMessage.cs" />
     <Compile Include="WorldSync\Events\WorldObjectMessage.cs" />
     <Compile Include="Tools\QSBFlashlight.cs" />
@@ -240,6 +240,7 @@
     <Compile Include="Events\EventType.cs" />
     <Compile Include="Player\PlayerInfo.cs" />
     <Compile Include="Player\State.cs" />
+    <Compile Include="DeathSync\PreventShipDestruction.cs" />
     <Compile Include="DeathSync\RespawnOnDeath.cs" />
     <Compile Include="Player\QSBPlayerManager.cs" />
     <Compile Include="TransformSync\PlayerCameraSync.cs" />
@@ -257,7 +258,6 @@
     <Compile Include="TransformSync\PlayerTransformSync.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorldSync\FactReveal.cs" />
-    <Compile Include="WorldSync\IWorldObject.cs" />
     <Compile Include="WorldSync\QSBWorldSync.cs" />
     <Compile Include="WorldSync\WorldObject.cs" />
   </ItemGroup>
@@ -268,17 +268,13 @@
     <None Include="manifest.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuantumUNET\QuantumUNET.csproj">
       <Project>{C8C53004-1508-4F86-A419-4292C188DC2A}</Project>
       <Name>QuantumUNET</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="OWML">
-      <Version>1.1.7</Version>
-    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

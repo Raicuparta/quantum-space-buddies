@@ -23,7 +23,6 @@ namespace QSB.DeathSync.Events
 		public override void OnReceiveRemote(bool server, EnumMessage<DeathType> message)
 		{
 			var playerName = QSBPlayerManager.GetPlayer(message.AboutId).Name;
-			// TODO : this is random per client! change this event so it sends the message index and the deathtype?
 			var deathMessage = Necronomicon.GetPhrase(message.Value);
 			DebugLog.ToAll(string.Format(deathMessage, playerName));
 		}

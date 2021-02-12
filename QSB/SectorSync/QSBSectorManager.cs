@@ -1,5 +1,4 @@
 ﻿using OWML.Common;
-using QSB.SectorSync.WorldObjects;
 using QSB.Utility;
 using QSB.WorldSync;
 using System.Linq;
@@ -22,35 +21,29 @@ namespace QSB.SectorSync
 		{
 			Instance = this;
 			QSBSceneManager.OnUniverseSceneLoaded += (OWScene scene) => RebuildSectors();
-			QSBSceneManager.OnUniverseSceneLoaded += (OWScene scene) => QSBCore.Helper.Events.Unity.RunWhen(() => Locator.GetPlayerSectorDetector() != null, StartThing);
 			DebugLog.DebugWrite("Sector Manager ready.", MessageType.Success);
 		}
 
 		public void OnDestroy() => QSBSceneManager.OnUniverseSceneLoaded -= (OWScene scene) => RebuildSectors();
 
-		private void StartThing()
-		{
-			Locator.GetPlayerSectorDetector().OnEnterSector += (Sector sector) => DebugLog.DebugWrite($"Player enter sector {sector.name}", MessageType.Success);
-			Locator.GetPlayerSectorDetector().OnExitSector += (Sector sector) => DebugLog.DebugWrite($"Player exit sector {sector.name}", MessageType.Warning);
-		}
-
 		public void RebuildSectors()
 		{
 			DebugLog.DebugWrite("Rebuilding sectors...", MessageType.Warning);
 			QSBWorldSync.RemoveWorldObjects<QSBSector>();
-			QSBWorldSync.Init<QSBSector, Sector>();
+			var sectors = Resources.FindObjectsOfTypeAll<Sector>().ToList();
+			for (var id = 0; id < sectors.Count; id++)
+			{
+				var qsbSector = QSBWorldSync.GetWorldObject<QSBSector>(id) ?? new QSBSector();
+				qsbSector.Init(sectors[id], id);
+				QSBWorldSync.AddWorldObject(qsbSector);
+			}
 			IsReady = QSBWorldSync.GetWorldObjects<QSBSector>().Any();
 		}
 
 		public QSBSector GetClosestSector(Transform trans) // trans rights \o/
 		{
-			if (QSBWorldSync.GetWorldObjects<QSBSector>().Count() == 0)
-			{
-				DebugLog.ToConsole($"Error - Can't get closest sector, as there are no QSBSectors!", MessageType.Error);
-				return null;
-			}
 			return QSBWorldSync.GetWorldObjects<QSBSector>()
-				.Where(sector => sector.AttachedObject != null
+				.Where(sector => sector.Sector != null
 					&& !_sectorBlacklist.Contains(sector.Type)
 					&& sector.Transform.gameObject.activeInHierarchy)
 				.OrderBy(sector => Vector3.Distance(sector.Position, trans.position))

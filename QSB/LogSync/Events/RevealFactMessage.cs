@@ -9,7 +9,7 @@ namespace QSB.LogSync.Events
 		public bool SaveGame { get; set; }
 		public bool ShowNotification { get; set; }
 
-		public override void Deserialize(QNetworkReader reader)
+		public override void Deserialize(QSBNetworkReader reader)
 		{
 			base.Deserialize(reader);
 			FactId = reader.ReadString();
@@ -17,7 +17,7 @@ namespace QSB.LogSync.Events
 			ShowNotification = reader.ReadBoolean();
 		}
 
-		public override void Serialize(QNetworkWriter writer)
+		public override void Serialize(QSBNetworkWriter writer)
 		{
 			base.Serialize(writer);
 			writer.Write(FactId);

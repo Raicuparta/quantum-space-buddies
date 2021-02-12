@@ -9,10 +9,10 @@ namespace QSB.Tools
 		private Transform _root;
 		private Transform _basePivot;
 		private Transform _wobblePivot;
+
+		private bool _flashlightOn;
 		private Vector3 _baseForward;
 		private Quaternion _baseRotation;
-
-		public bool FlashlightOn;
 
 		public void Start()
 		{
@@ -33,7 +33,7 @@ namespace QSB.Tools
 				light.GetLight().enabled = false;
 				light.GetLight().shadows = LightShadows.Soft;
 			}
-			FlashlightOn = false;
+			_flashlightOn = false;
 		}
 
 		public void UpdateState(bool value)
@@ -50,7 +50,7 @@ namespace QSB.Tools
 
 		private void TurnOn()
 		{
-			if (FlashlightOn)
+			if (_flashlightOn)
 			{
 				return;
 			}
@@ -58,7 +58,7 @@ namespace QSB.Tools
 			{
 				light.GetLight().enabled = true;
 			}
-			FlashlightOn = true;
+			_flashlightOn = true;
 			var rotation = _root.rotation;
 			_basePivot.rotation = rotation;
 			_baseRotation = rotation;
@@ -67,7 +67,7 @@ namespace QSB.Tools
 
 		private void TurnOff()
 		{
-			if (!FlashlightOn)
+			if (!_flashlightOn)
 			{
 				return;
 			}
@@ -75,12 +75,8 @@ namespace QSB.Tools
 			{
 				light.GetLight().enabled = false;
 			}
-			FlashlightOn = false;
+			_flashlightOn = false;
 		}
-
-		public bool CheckIlluminationAtPoint(Vector3 point, float buffer = 0f, float maxDistance = float.PositiveInfinity)
-			=> FlashlightOn
-				&& _lights[1].CheckIlluminationAtPoint(point, buffer, maxDistance);
 
 		public void FixedUpdate()
 		{
@@ -91,19 +87,6 @@ namespace QSB.Tools
 			_basePivot.rotation = _baseRotation;
 			_baseForward = _basePivot.forward;
 			_wobblePivot.localRotation = OWUtilities.GetWobbleRotation(0.3f, 0.15f) * Quaternion.identity;
-		}
-
-		private void OnRenderObject()
-		{
-			if (!QSBCore.HasWokenUp || !QSBCore.DebugMode || !QSBCore.ShowLinesInDebug)
-			{
-				return;
-			}
-			var light = _lights[1].GetLight();
-			if (light.enabled)
-			{
-				Popcron.Gizmos.Cone(light.transform.position, light.transform.rotation, light.range, light.spotAngle, Color.yellow);
-			}
 		}
 	}
 }

@@ -1,16 +1,17 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace QSB
 {
+	public delegate void InputEvent();
+
 	public class QSBInputManager : MonoBehaviour
 	{
-		public static event Action ChertTaunt;
-		public static event Action EskerTaunt;
-		public static event Action RiebeckTaunt;
-		public static event Action GabbroTaunt;
-		public static event Action FeldsparTaunt;
-		public static event Action ExitTaunt;
+		public static event InputEvent ChertTaunt;
+		public static event InputEvent EskerTaunt;
+		public static event InputEvent RiebeckTaunt;
+		public static event InputEvent GabbroTaunt;
+		public static event InputEvent FeldsparTaunt;
+		public static event InputEvent ExitTaunt;
 
 		// TODO : finish instruments - disabled for 0.7.0 release
 		/*

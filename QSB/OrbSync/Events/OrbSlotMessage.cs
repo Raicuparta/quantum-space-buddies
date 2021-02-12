@@ -9,7 +9,7 @@ namespace QSB.OrbSync.Events
 		public int OrbId { get; set; }
 		public bool SlotState { get; set; }
 
-		public override void Deserialize(QNetworkReader reader)
+		public override void Deserialize(QSBNetworkReader reader)
 		{
 			base.Deserialize(reader);
 			SlotId = reader.ReadInt32();
@@ -17,7 +17,7 @@ namespace QSB.OrbSync.Events
 			SlotState = reader.ReadBoolean();
 		}
 
-		public override void Serialize(QNetworkWriter writer)
+		public override void Serialize(QSBNetworkWriter writer)
 		{
 			base.Serialize(writer);
 			writer.Write(SlotId);

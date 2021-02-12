@@ -1,7 +1,6 @@
 ﻿using OWML.Common;
 using QSB.Player;
 using QSB.SectorSync;
-using QSB.SectorSync.WorldObjects;
 using QSB.Utility;
 using System.Linq;
 using UnityEngine;
@@ -87,7 +86,7 @@ namespace QSB.TransformSync
 		{
 			if (HasAuthority) // If this script is attached to the client's own body on the client's side.
 			{
-				if (ReferenceSector == null || ReferenceSector.AttachedObject == null)
+				if (ReferenceSector == null || ReferenceSector.Sector == null)
 				{
 					DebugLog.ToConsole($"Error - ReferenceSector has null value for {Player.PlayerId}.{GetType().Name}", MessageType.Error);
 					return;
@@ -113,7 +112,7 @@ namespace QSB.TransformSync
 
 		public void SetReferenceSector(QSBSector sector)
 		{
-			if (sector == ReferenceSector || sector == null)
+			if (sector == ReferenceSector)
 			{
 				return;
 			}

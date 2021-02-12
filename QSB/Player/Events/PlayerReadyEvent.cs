@@ -1,6 +1,7 @@
 ﻿using OWML.Common;
 using QSB.Events;
 using QSB.Messaging;
+using QSB.SectorSync;
 using QSB.Utility;
 using System.Linq;
 
@@ -37,7 +38,7 @@ namespace QSB.Player.Events
 		{
 			DebugLog.DebugWrite($"Get ready event from {message.FromId}", MessageType.Success);
 			QSBPlayerManager.GetPlayer(message.AboutId).IsReady = message.ToggleValue;
-			QSBEventManager.FireEvent(EventNames.QSBServerSendPlayerStates);
+			GlobalMessenger.FireEvent(EventNames.QSBServerSendPlayerStates);
 		}
 
 		private void HandleClient(ToggleMessage message)
@@ -53,7 +54,7 @@ namespace QSB.Player.Events
 			foreach (var item in QSBPlayerManager.GetSyncObjects<TransformSync.TransformSync>()
 				.Where(x => x != null && x.IsReady && x.ReferenceSector != null && x.PlayerId == LocalPlayerId))
 			{
-				QSBEventManager.FireEvent(EventNames.QSBSectorChange, item.NetId.Value, item.ReferenceSector);
+				GlobalMessenger<uint, QSBSector>.FireEvent(EventNames.QSBSectorChange, item.NetId.Value, item.ReferenceSector);
 			}
 		}
 	}

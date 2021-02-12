@@ -1,6 +1,5 @@
 ﻿using QSB.Events;
 using QSB.Player;
-using QSB.SectorSync.WorldObjects;
 using System.Linq;
 using UnityEngine;
 
@@ -44,6 +43,6 @@ namespace QSB.SectorSync
 		}
 
 		private void SendSector(uint id, QSBSector sector) =>
-			QSBEventManager.FireEvent(EventNames.QSBSectorChange, id, sector);
+			GlobalMessenger<uint, QSBSector>.FireEvent(EventNames.QSBSectorChange, id, sector);
 	}
 }

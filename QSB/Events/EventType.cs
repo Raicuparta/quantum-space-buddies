@@ -25,15 +25,6 @@
 		ConversationStartEnd,
 		PlayInstrument,
 		DialogueCondition,
-		RevealFact,
-		SocketStateChange,
-		MultiStateChange,
-		QuantumShuffle,
-		QuantumAuthority,
-		MoonStateChange,
-		IdentifyFrequency,
-		IdentifySignal,
-		TextTranslated,
-		EnterLeave
+		RevealFact
 	}
 }

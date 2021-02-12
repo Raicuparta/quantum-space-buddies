@@ -50,7 +50,7 @@ namespace QSB.OrbSync.Events
 
 		private static void HandleServer(WorldObjectMessage message)
 		{
-			var fromPlayer = QNetworkServer.connections.First(x => x.GetPlayer().PlayerId == message.FromId);
+			var fromPlayer = QSBNetworkServer.connections.First(x => x.GetPlayer().PlayerId == message.FromId);
 			if (QSBWorldSync.OrbSyncList.Count == 0)
 			{
 				DebugLog.ToConsole($"Error - OrbSyncList is empty. (ID {message.ObjectId})", MessageType.Error);
@@ -67,7 +67,7 @@ namespace QSB.OrbSync.Events
 				DebugLog.ToConsole($"Error - No orb found for user event. (ID {message.ObjectId})", MessageType.Error);
 				return;
 			}
-			var orbIdentity = orbSync.GetComponent<QNetworkIdentity>();
+			var orbIdentity = orbSync.GetComponent<QSBNetworkIdentity>();
 			if (orbIdentity == null)
 			{
 				DebugLog.ToConsole($"Error - Orb identity is null. (ID {message.ObjectId})", MessageType.Error);

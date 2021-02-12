@@ -2,7 +2,6 @@
 {
 	public static class EventNames
 	{
-		// Built into Outer Wilds -- don't change unless they change in-game!
 		public static string TurnOnFlashlight = "TurnOnFlashlight";
 		public static string TurnOffFlashlight = "TurnOffFlashlight";
 		public static string LaunchProbe = "LaunchProbe";
@@ -15,14 +14,11 @@
 		public static string RemoveSuit = "RemoveSuit";
 		public static string EquipTranslator = "EquipTranslator";
 		public static string UnequipTranslator = "UnequipTranslator";
+		public static string ExitShip = "ExitShip";
 		public static string RestartTimeLoop = "RestartTimeLoop";
 		public static string WakeUp = "WakeUp";
 		public static string DialogueCondition = "DialogueConditionChanged";
-		public static string EnterQuantumMoon = "PlayerEnterQuantumMoon";
-		public static string ExitQuantumMoon = "PlayerExitQuantumMoon";
 
-		// Custom event names -- change if you want! These can be anything, as long as both
-		// sides of the GlobalMessenger (fireevent and setuplistener) reference the same thing.
 		public static string QSBPlayerDeath = "QSBPlayerDeath";
 		public static string QSBPlayerJoin = "QSBPlayerJoin";
 		public static string QSBPlayerReady = "QSBPlayerReady";
@@ -39,15 +35,5 @@
 		public static string QSBChangeAnimType = "QSBPlayInstrument";
 		public static string QSBServerSendPlayerStates = "QSBServerSendPlayerStates";
 		public static string QSBRevealFact = "QSBRevealFact";
-		public static string QSBSocketStateChange = "QSBSocketStateChange";
-		public static string QSBMultiStateChange = "QSBMultiStateChange";
-		public static string QSBQuantumShuffle = "QSBQuantumShuffle";
-		public static string QSBQuantumAuthority = "QSBQuantumAuthority";
-		public static string QSBMoonStateChange = "QSBMoonStateChange";
-		public static string QSBIdentifyFrequency = "QSBIdentifyFrequency";
-		public static string QSBIdentifySignal = "QSBIdentifySignal";
-		public static string QSBTextTranslated = "QSBTextTranslated";
-		public static string QSBEnterShrine = "QSBEnterShrine";
-		public static string QSBExitShrine = "QSBExitShrine";
 	}
 }
